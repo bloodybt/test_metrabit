@@ -43,10 +43,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application URL
+    | Application Link
     |--------------------------------------------------------------------------
     |
-    | This URL is used by the console to properly generate URLs when using
+    | This Link is used by the console to properly generate URLs when using
     | the Artisan command line tool. You should set this to the root of
     | your application so that it is used when running Artisan tasks.
     |
@@ -225,7 +225,7 @@ return [
         'Session' => Illuminate\Support\Facades\Session::class,
         'Storage' => Illuminate\Support\Facades\Storage::class,
         'Str' => Illuminate\Support\Str::class,
-        'URL' => Illuminate\Support\Facades\URL::class,
+        'Link' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 

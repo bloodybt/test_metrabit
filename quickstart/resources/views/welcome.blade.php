@@ -21,7 +21,19 @@
         </style>
     </head>
     <body class="antialiased">
-        Hello
-    <?php print_r($html)?>
+        <form action="{{ route('newRequest') }}" method="POST">
+            @csrf
+            <p>
+                <label for="url">URL: </label>
+                <input type="text" id="url" name="url" placeholder="Enter url">
+            </p>
+            <p>
+                <label for="notes">Notes: </label>
+                <input type="text" id="notes" name="notes" placeholder="Your notes">
+            </p>
+            <input type="submit" value="Search">
+        </form>
+
+        <?php print_r(unserialize(serialize($html)))?>
     </body>
 </html>

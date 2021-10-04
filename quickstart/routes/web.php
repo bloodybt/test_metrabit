@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\MainController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,4 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\MainController::class, 'getHtml']);
+Route::get('/', [MainController::class, 'index'])->name('index');
+
+Route::post('/store', [MainController::class, 'store'])->name('linkStore');
+Route::get('/all/{link}', [MainController::class, 'showAllResults'])->name('allResults');
+
+Route::post('/results', [MainController::class, 'makeRequests'])->name('makeRequests');
+Route::post('/', [MainController::class, 'makeRequests'])->name('newRequest');
