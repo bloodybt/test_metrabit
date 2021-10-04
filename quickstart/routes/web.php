@@ -20,4 +20,3 @@ Route::post('/store', [MainController::class, 'store'])->name('linkStore');
 Route::get('/all/{link}', [MainController::class, 'showAllResults'])->name('allResults');
 
 Route::post('/results', [MainController::class, 'makeRequests'])->name('makeRequests');
-Route::post('/', [MainController::class, 'makeRequests'])->name('newRequest');

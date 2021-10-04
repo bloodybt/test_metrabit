@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Link;
 use App\Models\RequestResult;
 use Illuminate\Http\Request;
+use Exception;
 
 class MainController extends Controller
 {
@@ -20,6 +21,19 @@ class MainController extends Controller
 
     public function store(Request $request)
     {
+        $arrContextOptions=array(
+            "ssl"=>array(
+                "verify_peer"=>false,
+                "verify_peer_name"=>false,
+            ),
+        );
+
+        try {
+            $html = file_get_contents('http://'.$request->url, false, stream_context_create($arrContextOptions));
+        } catch (Exception $ex) {
+            return view('index', ['links' => Link::all(), 'errors' => 'Wrong link!']);
+        }
+
         Link::create([
                 'url' => $request->url,
                 'notes' => $request->notes ?: null
